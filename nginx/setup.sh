@@ -210,10 +210,10 @@ ar18.script.execute_with_sudo cp -f "${script_dir}/config/${server_name}.conf" "
 ar18.script.execute_with_sudo ln -s "/etc/nginx/sites-available/${server_name}" "/etc/nginx/sites-enabled/${server_name}"
 
 ar18.script.execute_with_sudo rm -rf "/var/www/${server_name}"
-ar18.script.execute_with_sudo mkdir -p "/var/www/${server_name}/html/foo"
+ar18.script.execute_with_sudo mkdir -p "/var/www/${server_name}/html/foo/dir"
 
 ar18.script.execute_with_sudo bash -c "echo \"hello\" > \"/var/www/${server_name}/html/index.html\"" 
-ar18.script.execute_with_sudo bash -c "echo \"hello again\" > \"/var/www/${server_name}/html/foo/index.html\"" 
+ar18.script.execute_with_sudo bash -c "echo \"hello again\" > \"/var/www/${server_name}/html/foo/dir/index.html\"" 
 
 ar18.script.execute_with_sudo systemctl start nginx
 
