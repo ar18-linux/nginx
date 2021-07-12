@@ -210,7 +210,7 @@ ar18.script.execute_with_sudo ln -s "/etc/nginx/sites-available/${server_name}" 
 ar18.script.execute_with_sudo rm -rf "/var/www/${server_name}"
 ar18.script.execute_with_sudo mkdir -p "/var/www/${server_name}/html"
 
-ar18.script.execute_with_sudo echo "hello" > "/var/www/${server_name}/html/index.html" 
+ar18.script.execute_with_sudo bash -c "echo \"hello\" > \"/var/www/${server_name}/html/index.html\"" 
 
 ar18.script.execute_with_sudo systemctl reload nginx
 
