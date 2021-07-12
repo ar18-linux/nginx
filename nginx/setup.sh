@@ -188,8 +188,8 @@ ar18.script.import ar18.script.read_target
 
 server_name="test_server"
 
-ar18.script.execute_with_sudo cp -f "${script_dir}/config/${test_server}.conf" "/etc/nginx/sites-available/${test_server}"
-ar18.script.execute_with_sudo ln -s "/etc/nginx/sites-available/${test_server}" "/etc/nginx/sites-available/${test_server}"
+ar18.script.execute_with_sudo cp -f "${script_dir}/config/${server_name}.conf" "/etc/nginx/sites-available/${server_name}"
+ar18.script.execute_with_sudo ln -s "/etc/nginx/sites-available/${server_name}" "/etc/nginx/sites-available/${server_name}"
 
 ar18.script.execute_with_sudo systemctl reload nginx
 
