@@ -194,7 +194,7 @@ ar18.script.execute_with_sudo rm -f "/etc/nginx/nginx.conf"
 # Recreate the default config file
 ar18.script.execute_with_sudo pacman -S nginx --noconfirm
 
-ar18.script.execute_with_sudo sed -i -E "s^http \{^http \{\n    include /etc/nginx/sites-enabled/*;'^g" "/etc/nginx/nginx.conf"
+ar18.script.execute_with_sudo sed -i -E "s^http \{^http \{\n    include /etc/nginx/sites-enabled/*;^g" "/etc/nginx/nginx.conf"
 
 ar18.script.execute_with_sudo rm -rf "/etc/nginx/sites-available"
 ar18.script.execute_with_sudo rm -rf "/etc/nginx/sites-enabled"
