@@ -189,6 +189,8 @@ ar18.script.import ar18.script.read_target
 
 ar18.script.obtain_sudo_password
 
+ar18.script.execute_with_sudo systemctl stop nginx
+
 ar18.script.execute_with_sudo rm -f "/etc/nginx/nginx.conf"
 
 # Recreate the default config file
