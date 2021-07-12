@@ -189,7 +189,7 @@ ar18.script.import ar18.script.read_target
 
 ar18.script.obtain_sudo_password
 
-ar18.script.execute_with_sudo sed -i -E "s^http {^http {\n    include /etc/nginx/sites-enabled/*;'^g" "/etc/nginx/nginx.conf"
+ar18.script.execute_with_sudo sed -i -E "s^http \{^http \{\n    include /etc/nginx/sites-enabled/*;'^g" "/etc/nginx/nginx.conf"
 
 ar18.script.execute_with_sudo mkdir -p "/etc/nginx/sites-avaialable"
 ar18.script.execute_with_sudo mkdir -p "/etc/nginx/sites-enabled"
