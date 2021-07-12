@@ -215,7 +215,7 @@ ar18.script.execute_with_sudo mkdir -p "/var/www/${server_name}/html/foo"
 ar18.script.execute_with_sudo bash -c "echo \"hello\" > \"/var/www/${server_name}/html/index.html\"" 
 ar18.script.execute_with_sudo bash -c "echo \"hello again\" > \"/var/www/${server_name}/html/foo/index.html\"" 
 
-ar18.script.execute_with_sudo systemctl reload nginx
+ar18.script.execute_with_sudo systemctl start nginx
 
 ##################################SCRIPT_END###################################
 set +x
