@@ -180,17 +180,26 @@ trap 'err_report "${BASH_SOURCE[0]}" ${LINENO} "${BASH_COMMAND}"' ERR
 }
 #################################SCRIPT_START##################################
 
-ar18.script.import ar18.script.install
+ar18.script.import ar18.script.obtain_sudo_password
 ar18.script.import ar18.pacman.install
 ar18.script.import ar18.script.execute_with_sudo
+ar18.script.import ar18.script.read_target
 
-. "${script_dir}/vars"
+ar18.script.obtain_sudo_password
 
-ar18.script.install "${install_dir}" "${module_name}" "${script_dir}"
+ar18.script.execute_with_sudo systemctl stop nginx
 
-ar18.pacman.install nginx
+server_name="${1}"
 
-ar18.script.execute_with_sudo systemctl enable nginx
+ar18.script.execute_with_sudo cp -f "${script_dir}/config/${server_name}.conf" "/etc/nginx/sites-available/${server_name}"
+ar18.script.execute_with_sudo ln -s "/etc/nginx/sites-available/${server_name}" "/etc/nginx/sites-enabled/${server_name}"
+
+ar18.script.execute_with_sudo rm -rf "/var/www/${server_name}"
+ar18.script.execute_with_sudo mkdir -p "/var/www/${server_name}/html/foo/dir"
+
+ar18.script.execute_with_sudo bash -c "echo \"hello\" > \"/var/www/${server_name}/html/index.html\"" 
+ar18.script.execute_with_sudo bash -c "echo \"hello again\" > \"/var/www/${server_name}/html/foo/dir/index.html\"" 
+
 ar18.script.execute_with_sudo systemctl start nginx
 
 ##################################SCRIPT_END###################################
