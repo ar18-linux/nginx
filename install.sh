@@ -193,6 +193,8 @@ ar18.pacman.install nginx
 ar18.script.execute_with_sudo systemctl enable nginx
 ar18.script.execute_with_sudo systemctl start nginx
 
+"${script_dir}/${module_name}/init.sh"
+
 ##################################SCRIPT_END###################################
 set +x
 ar18_return_or_exit "${script_path}" && eval "${ar18_exit}"
