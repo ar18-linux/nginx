@@ -192,6 +192,7 @@ ar18.script.execute_with_sudo systemctl stop nginx
 server_name="${1}"
 
 ar18.script.execute_with_sudo cp -f "${script_dir}/config/${server_name}.conf" "/etc/nginx/sites-available/${server_name}"
+ar18.script.execute_with_sudo -f "/etc/nginx/sites-enabled/${server_name}"
 ar18.script.execute_with_sudo ln -s "/etc/nginx/sites-available/${server_name}" "/etc/nginx/sites-enabled/${server_name}"
 
 ar18.script.execute_with_sudo rm -rf "/var/www/${server_name}"
