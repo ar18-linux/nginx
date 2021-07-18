@@ -188,6 +188,8 @@ ar18.script.import ar18.script.execute_with_sudo
 
 ar18.script.install "${install_dir}" "${module_name}" "${script_dir}"
 
+# Recreate the default config file
+ar18.script.execute_with_sudo rm -f "/etc/nginx/nginx.conf"
 ar18.pacman.install nginx
 
 ar18.script.execute_with_sudo systemctl enable nginx
